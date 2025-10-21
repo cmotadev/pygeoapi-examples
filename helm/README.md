@@ -1,11 +1,27 @@
 # pygeoapi Helm Chart
 
-This Helm chart deploys a **pygeoapi** instance, a server that publishes geospatial data using Open Geospatial Consortium (OGC) standards and the OGC API Features. This chart is designed to be flexible and easy to configure, allowing you to customize the deployment to fit your needs. 🚀
+This Helm chart deploys a **pygeoapi** instance, a server that publishes geospatial data using the OGC API - Features Standard from the Open Geospatial Consortium (OGC). This chart is designed to be flexible and easy to configure, allowing you to customize the deployment to fit your needs. 🚀
+
+## Why Helm?
+
+Helm is a package manage for kubernetes: it helps you manage Kubernetes applications. Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
+
+## Requirements
+
+To install this chart locally, you'll need a Kubernetes cluster running on your machine, such as:
+- [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
+- [minikube](https://minikube.sigs.k8s.io/docs/start/)
+- [CRC/OpenShift Local](https://developers.redhat.com/products/openshift-local/overview)
+- [Docker Desktop](https://docs.docker.com/desktop/) with Kubernetes enabled.
+
+And a cluster client: [kubectl](https://kubernetes.io/pt-br/docs/tasks/tools/) ([oc](https://docs.okd.io/4.18/cli_reference/openshift_cli/getting-started-cli.html) for openshift local)
+
+And [Helm](https://helm.sh/), of course... Get install how-to here: https://helm.sh/docs/intro/install/
 
 
-## **Local Installation**
+## Local Installation
 
-To install this chart locally, you'll need a Kubernetes cluster running on your machine, such as **kind**, **minikube**, **CRC/OpenShift Local**, or **Docker Desktop** with Kubernetes enabled. Once your local cluster is up and running, you can install the chart directly from your local file system.
+Once your local cluster is up and running, you can install the chart directly from your local file system.
 
 First, navigate to the chart's directory:
 
@@ -65,7 +81,7 @@ kubectl create secret generic pygeoapi-custom-config --from-file=local.config.ym
 helm install [YOUR_RELEASE_NAME] . -f my-custom-values.yaml
 ```
 
-### Openshift-specific setiings
+### Openshift-specific settings
 
 In OpenShift some additional config needs to be set, because pygeoapi still has issues running as non-root user. Three additional steps needs to be set before helm install
 
